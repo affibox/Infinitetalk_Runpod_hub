@@ -7,7 +7,7 @@ This project is a template designed to easily deploy and use [InfiniteTalk](http
 
 InfiniteTalk is an AI model that takes a single portrait image and speech audio as input to generate natural lip-sync videos with infinite talking capabilities.
 
-## 🎨 Engui Studio Integration
+## 🎨 affiBox Studio Integration
 
 This InfiniteTalk template is primarily designed for **affiBox Studio**, a comprehensive AI model management platform.
 
