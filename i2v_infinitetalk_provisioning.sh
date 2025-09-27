@@ -1,17 +1,27 @@
 #!/bin/bash
 set -e
 
-# Update system and install wget
-apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
+# System deps
+apt-get update && apt-get install -y wget git && rm -rf /var/lib/apt/lists/*
 
-# Extra Python dependencies
+# Python deps
 pip install -U "huggingface_hub[hf_transfer]"
 pip install runpod websocket-client librosa
 
-# Go to ComfyUI custom_nodes folder
-cd /workspace/ComfyUI/custom_nodes
+# Install ComfyUI
+cd /workspace
+git clone https://github.com/comfyanonymous/ComfyUI.git
+cd ComfyUI
+pip install -r requirements.txt
 
-# Install additional custom nodes
+# Install ComfyUI Manager
+cd /workspace/ComfyUI/custom_nodes
+git clone https://github.com/Comfy-Org/ComfyUI-Manager.git
+cd ComfyUI-Manager
+pip install -r requirements.txt
+cd ..
+
+# Install your extra custom nodes
 git clone https://github.com/city96/ComfyUI-GGUF && cd ComfyUI-GGUF && pip install -r requirements.txt && cd ..
 git clone https://github.com/kijai/ComfyUI-KJNodes && cd ComfyUI-KJNodes && pip install -r requirements.txt && cd ..
 git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite && cd ComfyUI-VideoHelperSuite && pip install -r requirements.txt && cd ..
@@ -46,4 +56,4 @@ wget https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/sp
 wget https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRoformer_fp16.safetensors \
      -O /workspace/ComfyUI/models/diffusion_models/MelBandRoformer_fp16.safetensors
 
-echo "✅ Provisioning complete. You can now run ComfyUI on port 8188."
+echo "✅ Provisioning finished. ComfyUI + Manager + custom nodes/models ready."
