@@ -28,28 +28,32 @@ NODES=(
 )
 
 WORKFLOWS=(
-    "https://raw.githubusercontent.com/affibox/Infinitetalk_Runpod_hub/refs/heads/main/LB_I2V_single.json"
+    "https://github.com/affibox/Infinitetalk_Runpod_hub/blob/main/LB_I2V_single.json"
 )
 
 CHECKPOINT_MODELS=(
-    # "https://huggingface.co/Kijai/WanVideo_comfy_GGUF/resolve/main/InfiniteTalk/Wan2_1-InfiniteTalk_Single_Q8.gguf"
-    # "https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/resolve/main/wan2.1-i2v-14b-480p-Q8_0.gguf"
-    # "https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRoformer_fp16.safetensors"
+     "https://huggingface.co/Kijai/WanVideo_comfy_GGUF/resolve/main/InfiniteTalk/Wan2_1-InfiniteTalk_Single_Q8.gguf"
+     "https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/resolve/main/wan2.1-i2v-14b-480p-Q8_0.gguf"
+     "https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRoformer_fp16.safetensors"
 )
 
 UNET_MODELS=(
 )
 
 LORA_MODELS=(
+     "https://raw.githubusercontent.com/affibox/Infinitetalk_Runpod_hub/main/LB_I2V_single.json"
 )
 
 VAE_MODELS=(
+     "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors"
+)
+TEXT_ENCODER_MODELS=(
+     "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors"
 )
 
-ESRGAN_MODELS=(
-)
 
-CONTROLNET_MODELS=(
+CLIP_VISION_MODELS=(
+    "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
@@ -63,20 +67,20 @@ function provisioning_start() {
         "${COMFYUI_DIR}/models/diffusion_models" \
         "${CHECKPOINT_MODELS[@]}"
     provisioning_get_files \
-        "${COMFYUI_DIR}/models/unet" \
-        "${UNET_MODELS[@]}"
-    provisioning_get_files \
         "${COMFYUI_DIR}/models/lora" \
         "${LORA_MODELS[@]}"
     provisioning_get_files \
-        "${COMFYUI_DIR}/models/controlnet" \
-        "${CONTROLNET_MODELS[@]}"
+        "${COMFYUI_DIR}/models/text_encoders" \
+        "${TEXT_ENCODER_MODELS[@]}"
+    provisioning_get_files \
+        "${COMFYUI_DIR}/models/clip_vision" \
+        "${CLIP_VISION_MODELS[@]}"
     provisioning_get_files \
         "${COMFYUI_DIR}/models/vae" \
         "${VAE_MODELS[@]}"
     provisioning_get_files \
-        "${COMFYUI_DIR}/models/esrgan" \
-        "${ESRGAN_MODELS[@]}"
+        "${COMFYUI_DIR}/workflows" \
+        "${WORKFLOWS[@]}"
     provisioning_print_end
 }
 
@@ -174,10 +178,6 @@ function provisioning_has_valid_civitai_token() {
 function provisioning_download() {
     if [[ -n $HF_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
         auth_token="$HF_TOKEN"
-    elif 
-        [[ -n $CIVITAI_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
-        auth_token="$CIVITAI_TOKEN"
-    fi
     if [[ -n $auth_token ]];then
         wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
     else
