@@ -28,7 +28,7 @@ NODES=(
 )
 
 WORKFLOWS=(
-
+    "https://raw.githubusercontent.com/affibox/Infinitetalk_Runpod_hub/refs/heads/main/LB_I2V_single.json"
 )
 
 CHECKPOINT_MODELS=(
