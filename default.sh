@@ -24,6 +24,7 @@ NODES=(
     "https://github.com/orssorbit/ComfyUI-wanBlockswap"
     "https://github.com/kijai/ComfyUI-MelBandRoFormer"
     "https://github.com/kijai/ComfyUI-WanVideoWrapper"
+    "https://github.com/comfy-deploy/comfyui-llm-toolkit"
 )
 
 WORKFLOWS=(
