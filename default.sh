@@ -79,7 +79,7 @@ function provisioning_start() {
         "${COMFYUI_DIR}/models/vae" \
         "${VAE_MODELS[@]}"
     provisioning_get_files \
-        "${COMFYUI_DIR}/workflows" \
+        "${COMFYUI_DIR}/user/default/workflows" \
         "${WORKFLOWS[@]}"
     provisioning_print_end
 }
