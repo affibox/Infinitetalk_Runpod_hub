@@ -28,32 +28,32 @@ NODES=(
 )
 
 WORKFLOWS=(
-    "https://github.com/affibox/Infinitetalk_Runpod_hub/blob/main/LB_I2V_single.json"
+    "https://raw.githubusercontent.com/affibox/Infinitetalk_Runpod_hub/main/LB_I2V_single.json"
 )
 
 CHECKPOINT_MODELS=(
-     "https://huggingface.co/Kijai/WanVideo_comfy_GGUF/resolve/main/InfiniteTalk/Wan2_1-InfiniteTalk_Single_Q8.gguf"
-     "https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/resolve/main/wan2.1-i2v-14b-480p-Q8_0.gguf"
-     "https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRoformer_fp16.safetensors"
+    #  "https://huggingface.co/Kijai/WanVideo_comfy_GGUF/resolve/main/InfiniteTalk/Wan2_1-InfiniteTalk_Single_Q8.gguf"
+    #  "https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/resolve/main/wan2.1-i2v-14b-480p-Q8_0.gguf"
+    #  "https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRoformer_fp16.safetensors"
 )
 
 UNET_MODELS=(
 )
 
 LORA_MODELS=(
-     "https://raw.githubusercontent.com/affibox/Infinitetalk_Runpod_hub/main/LB_I2V_single.json"
+    #  "https://raw.githubusercontent.com/affibox/Infinitetalk_Runpod_hub/main/LB_I2V_single.json"
 )
 
 VAE_MODELS=(
-     "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors"
+    #  "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors"
 )
 TEXT_ENCODER_MODELS=(
-     "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors"
+    #  "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors"
 )
 
 
 CLIP_VISION_MODELS=(
-    "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors"
+    # "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors"
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
