@@ -4,9 +4,6 @@ set -e
 wget https://huggingface.co/Kijai/WanVideo_comfy_GGUF/resolve/main/InfiniteTalk/Wan2_1-InfiniteTalk_Single_Q8.gguf \
      -O /workspace/ComfyUI/models/diffusion_models/Wan2_1-InfiniteTalk_Single_Q8.gguf
 
-wget https://huggingface.co/Kijai/WanVideo_comfy_GGUF/resolve/main/InfiniteTalk/Wan2_1-InfiniteTalk_Multi_Q8.gguf \
-     -O /workspace/ComfyUI/models/diffusion_models/Wan2_1-InfiniteTalk_Multi_Q8.gguf
-
 wget https://huggingface.co/city96/Wan2.1-I2V-14B-480P-gguf/resolve/main/wan2.1-i2v-14b-480p-Q8_0.gguf \
      -O /workspace/ComfyUI/models/diffusion_models/wan2.1-i2v-14b-480p-Q8_0.gguf
 
