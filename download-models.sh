@@ -23,6 +23,6 @@ wget https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRofo
      -O /workspace/ComfyUI/models/diffusion_models/MelBandRoformer_fp16.safetensors
 
 wget https://raw.githubusercontent.com/affibox/Infinitetalk_Runpod_hub/refs/heads/main/LB_I2V_single.json \
-     -O /workspace/ComfyUI/user/default/workflows
+     -O /workspace/ComfyUI/user/default/workflows/LB_I2V_single.json
 
 echo "✅ All models downloaded!"
