@@ -22,6 +22,7 @@ wget https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/sp
 wget https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRoformer_fp16.safetensors \
      -O /workspace/ComfyUI/models/diffusion_models/MelBandRoformer_fp16.safetensors
 
+mkdir -p /workspace/ComfyUI/user/default/workflows && \
 wget https://raw.githubusercontent.com/affibox/Infinitetalk_Runpod_hub/refs/heads/main/LB_I2V_single.json \
      -O /workspace/ComfyUI/user/default/workflows/LB_I2V_single.json
 
